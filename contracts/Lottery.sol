@@ -58,7 +58,7 @@ contract Lottery {
     challenges = b.challenges;
   }
 
-  function pushBet(byte challenges) public returns (bool) {
+  function pushBet(byte challenges) internal returns (bool) {
     BetInfo memory b;
     b.bettor = msg.sender;
     b.answerBlockNumber = block.number + BET_BLOCK_INTERVAL;
@@ -70,7 +70,7 @@ contract Lottery {
     return true;
   }
 
-  function popBet(uint256 index) public returns (bool) {
+  function popBet(uint256 index) internal returns (bool) {
     delete _bets[index];
     return true;
   }
