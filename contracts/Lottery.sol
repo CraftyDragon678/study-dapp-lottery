@@ -22,12 +22,26 @@ contract Lottery {
     owner = msg.sender;
   }
 
-  function getSomeValue() public pure returns (uint256 value) {
-    return 5;
-  }
-
   function getPot() public view returns (uint256 value) {
     return _pot;
+  }
+
+  // Bet
+
+  /**
+   * @dev bet. user send 0.005 ETH, send 1 byte character to bet.
+   * bet info saved in queue is used in distribute function
+   * @param challenges
+   * @return check if function run well
+   */
+  function bet(byte challenges) public payable returns (bool result) {
+    // check the proper ether is sent
+
+    // push bet to the queue
+    
+    // emit event
+
+    return true;
   }
 
   function getBetInfo(uint256 index) public view returns (
