@@ -31,8 +31,8 @@ contract Lottery {
   /**
    * @dev bet. user send 0.005 ETH, send 1 byte character to bet.
    * bet info saved in queue is used in distribute function
-   * @param challenges
-   * @return check if function run well
+   * @param challenges character bet by user
+   * @return result check if function run well
    */
   function bet(byte challenges) public payable returns (bool result) {
     // check the proper ether is sent
