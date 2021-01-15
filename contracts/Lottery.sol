@@ -18,6 +18,9 @@ contract Lottery {
   uint256 constant internal BET_BLOCK_INTERVAL = 3;
   uint256 constant internal BET_AMOUNT = 5 * 10 ** 15;
   uint256 private _pot;
+
+  event BET(uint256 index, address bettor, uint256 amount, byte challenges, uint256 answerBlockNumber);
+
   constructor() public {
     owner = msg.sender;
   }
@@ -36,11 +39,11 @@ contract Lottery {
    */
   function bet(byte challenges) public payable returns (bool result) {
     // check the proper ether is sent
-
+    require(msg.value == BET_AMOUNT, 'Not enough ETH');
     // push bet to the queue
-    
+    require(pushBet(challenges), 'Fail to add a new Bet info');
     // emit event
-
+    emit BET(_tail - 1, msg.sender, msg.value, challenges, block.number + BET_BLOCK_INTERVAL);
     return true;
   }
 
