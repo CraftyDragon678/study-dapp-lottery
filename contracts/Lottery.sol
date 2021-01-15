@@ -57,6 +57,18 @@ contract Lottery {
   }
 
   /**
+   * @dev bet and check answer. user send 0.005 ETH, send 1 byte character to bet.
+   * bet info saved in queue is used in distribute function
+   * @param challenges character bet by user
+   * @return result check if function run well
+   */
+  function betAndDistribute(byte challenges) public payable returns (bool result) {
+    bet(challenges);
+    distribute();
+    return true;
+  }
+
+  /**
    * @dev check betting result and distribute pot money
    * if fail: acc pot, if win: distribute pot, if draw or block limit passed: get bet money
    */
