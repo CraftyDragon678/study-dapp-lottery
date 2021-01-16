@@ -449,7 +449,6 @@ function App() {
   const getBetEvents = async () => {
     if (!web3.current || !account.current || !lotteryContract.current) return [];
     const events = await lotteryContract.current.getPastEvents('BET', { fromBlock: 0, toBlock: 'latest' });
-    console.log(events);
 
     return (
       events.map((event) => (
@@ -470,7 +469,6 @@ function App() {
   const getWinEvents = async () => {
     if (!web3.current || !account.current || !lotteryContract.current) return [];
     const events = await lotteryContract.current.getPastEvents('WIN', { fromBlock: 0, toBlock: 'latest' });
-    console.log(events);
 
     return (
       events.map((event) => (
@@ -485,7 +483,6 @@ function App() {
   const getFailEvents = async () => {
     if (!web3.current || !account.current || !lotteryContract.current) return [];
     const events = await lotteryContract.current.getPastEvents('FAIL', { fromBlock: 0, toBlock: 'latest' });
-    console.log(events);
 
     return (
       events.map((event) => (
