@@ -101,7 +101,7 @@ contract Lottery {
           // pot = pot + BET_AMOUNT
           _pot = _pot + BET_AMOUNT;
           // emit FAIL
-          emit WIN(cur, b.bettor, 0, b.challenges, answerBlockHash[0], b.answerBlockNumber);
+          emit FAIL(cur, b.bettor, 0, b.challenges, answerBlockHash[0], b.answerBlockNumber);
         }
 
         // if draw, refund bettor's money
