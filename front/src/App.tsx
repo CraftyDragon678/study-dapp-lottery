@@ -613,7 +613,7 @@ function App() {
           <tbody>
             {finalRecords.map((record, index) => (
               <tr key={index}>
-                <td>{index}</td>
+                <td>{record.betBlockNumber}</td>
                 <td>{record.bettor}</td>
                 <td>{record.challenges}</td>
                 <td>{record.answer}</td>
