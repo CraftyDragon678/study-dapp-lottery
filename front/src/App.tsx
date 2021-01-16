@@ -549,15 +549,7 @@ function App() {
   useEffect(() => {
     initWeb3().then(async () => {
       if (!web3.current) return;
-      // console.log(web3.current);
-      // const accounts = await web3.current.eth.getAccounts();
-      // console.log(accounts);
-      // const balance = await web3.current.eth.getBalance(accounts[0]);
-      // console.log(`${web3.current.utils.fromWei(balance, 'ether')}ETH`);
-      // await getBetEvents();
-      // await bet();
-      // await getPot();
-      await pollData();
+      setInterval(pollData, 1000);
     });
   }, [pollData]);
 
